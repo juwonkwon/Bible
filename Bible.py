@@ -29,12 +29,13 @@ class Bible:
         return self.book_list[self.chapter_pos], self.chapter, self.verse, self.end_verse
 
     def search(self, book_info):
-        print(f"{book_info[0]} {book_info[1]}:{book_info[2]}-{book_info[3]}\n")
         if book_info[3] != 0:
             for i in range(book_info[3] - book_info[2] + 1):
                 self.final_verse = self.bible[self.book_list.index(book_info[0])]["chapters"][book_info[1]-1][book_info[2]+i-1]
+                print(f"{book_info[0]} {book_info[1]}:{book_info[2]}-{book_info[3]}\n")
                 print(f"{i+1} {self.final_verse}")
         else:
             self.final_verse = self.bible[self.book_list.index(book_info[0])]["chapters"][book_info[1]-1][book_info[2]-1]
+            print(f"{book_info[0]} {book_info[1]}:{book_info[2]}\n")
             return f"{self.final_verse}"
 
